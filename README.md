@@ -9,16 +9,16 @@ The Circuit and Software uses the following technologies:
 * Rotary encoder using digital filter algorithm for debouncing for configuring the system
 
 The setup is very simple:
-0. The system checks for valid config and CRC in the EEPROM and if OK goes to 3 or step 1
-1. You have to register the 2 TX21IT+ sensors each time you change their battery the get a new ID.
-2. Then you setup in sensor, out sensor, absolute humidity threshold, pause time, run time for ventitalors which is stored in the OW EEPROM
-3. Then the mainloop starts
-3.1. In the Mainlopp the MCU will listen with the RFM12B for 30 TX21IT+ records
-3.2. The ID of the records is used to match in and out sensors configured in step 1 and 2, if no sensor matches found it starts @1 
-3.3 The temperature and relative humidity will be used to calculate absolute humidity for the in and out sensor
-3.5 If abs-hum-in > (threshold + abs-hum-out) the vens will run as long the configured runtime in step 2
-3.6. The system waits until the pause time is over and starte @3
-At any time a long press on the rotary knob will start reconfiguring mode step 1
+0. The system checks for valid config and CRC in the EEPROM and if OK goes to 3 or step 1  
+1. You have to register the 2 TX21IT+ sensors each time you change their battery the get a new ID.  
+2. Then you setup in sensor, out sensor, absolute humidity threshold, pause time, run time for ventitalors which is stored in the OW EEPROM  
+3. Then the mainloop starts  
+3.1. In the Mainlopp the MCU will listen with the RFM12B for 30 TX21IT+ records  
+3.2. The ID of the records is used to match in and out sensors configured in step 1 and 2, if no sensor matches found it starts @1   
+3.3 The temperature and relative humidity will be used to calculate absolute humidity for the in and out sensor  
+3.5 If abs-hum-in > (threshold + abs-hum-out) the vens will run as long the configured runtime in step 2  
+3.6. The system waits until the pause time is over and starte @3  
+At any time a long press on the rotary knob will start reconfiguring mode step 1  
 
 The system runs rockstable since 6 months in my garage with Marley Silencio Ventilators.
 Bottom ventilator blows air from outside, top ventilator blows air to outside.
