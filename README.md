@@ -5,7 +5,7 @@ The Circuit and Software uses the following technologies:
 * OW protocoll managing config data for DS2430A 1 wire 256 EEPROM
 * Microchip MCU PIC24F P24FJ32GB002
 * Hope RFM12B IRQ driven communication with TX21IT+ LaCrosse IT+ Weather sensors
-* IC2 communication with Newhaven Display NHD-C0216CiZ-FN-FBW-3V (which was tricky)
+* IC2 communication with Newhaven LCD Display NHD-C0216CiZ-FN-FBW-3V (which was tricky)
 * Rotary encoder using digital filter algorithm for debouncing for configuring the system  
 
 The setup is very simple:  
@@ -16,14 +16,14 @@ The setup is very simple:
 3.1. In the Mainlopp the MCU will listen with the RFM12B for 30 TX21IT+ records  
 3.2. The ID of the records is used to match in and out sensors configured in step 1 and 2, if no sensor matches found it starts @1   
 3.3 The temperature and relative humidity will be used to calculate absolute humidity for the in and out sensor  
-3.5 If abs-hum-in > (threshold + abs-hum-out) the vens will run as long the configured runtime in step 2  
+3.5 If abs-hum-in > (threshold + abs-hum-out) the AC ventilators will be switched with an SCR  will run as long the configured runtime in step 2  
 3.6. The system waits until the pause time is over and starte @3  
 At any time a long press on the rotary knob will start reconfiguring mode step 1  
 
-The system runs rockstable since 6 months in my garage with Marley Silencio Ventilators.
+The system runs rockstable since 6 months in my garage with Marley Silenzio Ventilators.  
+Not shown is the snubber circuit using a TVS, X2 capacitor and an high voltage resistor to reduce spikes to protect the SCR.
 Bottom ventilator blows air from outside, top ventilator blows air to outside.
-No moldy smell and always uses the right time for air condition to prevent mold creation during all seasons.
-
-The project uses MPLABX and has also a .project Eclipse file which I used to utilize Git Eclipse integration to manage versioning.
+No moldy smell and always uses the right time for air condition to prevent mold creation during all seasons.  
+The project uses MPLABX and has also a .project Eclipse file which I used to utilize Git Eclipse integration to manage versioning.  
 
 
