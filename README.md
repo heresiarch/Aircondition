@@ -23,3 +23,6 @@ At any time a long press on the rotary knob will start reconfiguring mode step 1
 The system runs rockstable since 6 months in my garage with Marley Silencio Ventilators.
 Bottom ventilator blows air from outside, top ventilator blows air to outside.
 No moldy smell and always uses the right time for air condition to prevent mold creation during all seasons.
+
+The project uses MPLABX and has also a .project Eclipse file which I used to utilize Git Eclipse integration to manage versioning.
+
