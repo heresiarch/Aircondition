@@ -6,9 +6,9 @@ The Circuit and Software uses the following technologies:
 * Microchip MCU PIC24F P24FJ32GB002
 * Hope RFM12B IRQ driven communication with TX21IT+ LaCrosse IT+ Weather sensors
 * IC2 communication with Newhaven Display NHD-C0216CiZ-FN-FBW-3V (which was tricky)
-* Rotary encoder using digital filter algorithm for debouncing for configuring the system
+* Rotary encoder using digital filter algorithm for debouncing for configuring the system  
 
-The setup is very simple:
+The setup is very simple:  
 0. The system checks for valid config and CRC in the EEPROM and if OK goes to 3 or step 1  
 1. You have to register the 2 TX21IT+ sensors each time you change their battery the get a new ID.  
 2. Then you setup in sensor, out sensor, absolute humidity threshold, pause time, run time for ventitalors which is stored in the OW EEPROM  
