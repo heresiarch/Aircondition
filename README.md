@@ -1,5 +1,5 @@
 # Aircondition
-A Project using TX21IT+ wireless 866Mhz sensors with RFM12 and PIC24F to control air ventilators based on absolute humidity.
+A Project using TX21IT+ wireless 868Mhz sensors with RFM12 and PIC24F to control air ventilators based on absolute humidity.
 You will find the whole C source and Eagle project files inside.
 The Circuit and Software uses the following technologies:
 * OW protocoll managing config data for DS2430A 1 wire 256 EEPROM
