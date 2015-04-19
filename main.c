@@ -226,6 +226,7 @@ void state_set_config(void)
         configData.outSensorID = chooseSensorID("Choose Out Sensor", global_buffer, found);
         configData.runTime = chooseIntVal("Runtime min",MIN_RUN_MINUTES,MAX_RUN_MINUTES,RUN_STEP);
         configData.pauseTime = chooseIntVal("Pause min",MIN_PAUSE_TIME_MINUTES, MAX_PAUSE_TIME_MINUTES,PAUSE_TIME_MINUTES_STEP);
+        configData.breakAfterRunTime = chooseIntVal("Break min", MIN_BREAK_BTW_RUNS_MINUTES, MAX_BREAK_BTW_RUNS_MINUTES,BREAK_BTW_RUNS_MINUTES_STEP);
         configData.threshold = chooseFloatVal("Ta Thresh. g/m^3",MIN_ABS_HUMIDITY_THRESHOLD, MAX_ABS_HUMIDITY_THRESHOLD, ABS_HUMIDITY_STEP,ABS_HUMIDITY_PRECISION);
         //Write Config to EEPROM
         uint8_t len = sizeof(AirConfigData);
@@ -256,6 +257,7 @@ void state_run(void)
     {
         char out = 0;
         int pause_counter = 0;
+        int break_counter = 0;
         int out_counter = 0;
         int found = findSensors();
         if(found <= 0)
@@ -345,8 +347,29 @@ void state_run(void)
                 s = ERROR;
             }
         }
-        out = 0;
-        RELAIS_OUT_PIN = 0;
+        // special wait after run
+        if(out == 1)
+        {
+            out = 0;
+            RELAIS_OUT_PIN = 0;
+            while(break_counter < configData.breakAfterRunTime * 60)
+            {
+                lcd2_clear();
+                lcd2_home();
+                lcd2_write_str_xy(0,0,"Air Condition");
+                lcd2_write_str_xy(0,1,"Break after Run ");
+                int secsLeft = (configData.breakAfterRunTime * 60 - break_counter);
+                lcd2_write_U16(secsLeft,0);
+                lcd2_write_str(" sec");
+                __delay_ms(1000);
+                break_counter += 1;
+                if(long_pressed())
+                {
+                    s = ERROR;
+                }
+            }
+        }
+        
         while(pause_counter < configData.pauseTime * 60 && s == RUN)
         {
             lcd2_clear();

@@ -15,6 +15,7 @@ typedef struct AirConfigData
     uint8_t inSensorID;
     uint16_t pauseTime;
     uint16_t runTime;
+    uint16_t breakAfterRunTime;
     float threshold;
 }AirConfigData;
 
@@ -32,6 +33,10 @@ typedef struct AirConfigData
 #define MIN_PAUSE_TIME_MINUTES 5
 #define MAX_PAUSE_TIME_MINUTES 120
 #define PAUSE_TIME_MINUTES_STEP 5
+
+#define MIN_BREAK_BTW_RUNS_MINUTES 60
+#define MAX_BREAK_BTW_RUNS_MINUTES 480
+#define BREAK_BTW_RUNS_MINUTES_STEP 10
 
 #define MAX_RECEIVE_RECORDS 30
 
