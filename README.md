@@ -20,7 +20,7 @@ The setup is very simple:
 3.6. The system waits until the pause time is over and starte @3  
 At any time a long press on the rotary knob will start reconfiguring mode step 1  
 
-The system runs rockstable since 6 months in my garage with Marley Silenzio Ventilators.  
+The system runs rockstable since 10 years in my garage with Marley Silenzio Ventilators.  
 Not shown is the snubber circuit using a TVS, X2 capacitor and an high voltage resistor to reduce spikes to protect the SCR.
 Bottom ventilator blows air from outside, top ventilator blows air to outside.
 No moldy smell and always uses the right time for air condition to prevent mold creation during all seasons.  
